@@ -1,0 +1,6 @@
+.posts {
+    background-color: white;
+    border: 1px dashed black;
+    grid-column: 1 / span 3;
+    grid-row: 3 / span 8;
+}

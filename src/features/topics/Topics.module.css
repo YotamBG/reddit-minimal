@@ -1,0 +1,6 @@
+.topics {
+    background-color: white;
+    border: 1px dashed black;
+    grid-column: 4 / span 1;
+    grid-row: 3 / span 8;
+}

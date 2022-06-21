@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import logo from './logo.svg';
 import { Counter } from './features/counter/Counter';
+import { Header } from './features/header/Header';
+import { Posts } from './features/posts/Posts';
+import { Topics } from './features/topics/Topics';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      <Header />
+      <Posts />
+      <Topics />
+
+      {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <Counter />
         <p>
@@ -50,7 +57,7 @@ function App() {
             React Redux
           </a>
         </span>
-      </header>
+      </header> */}
     </div>
   );
 }
