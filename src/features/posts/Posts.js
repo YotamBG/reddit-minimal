@@ -15,6 +15,11 @@ export function Posts() {
         dispatch(addPost({ id: 1, title: 'Post1', text: 'text1' }));
         dispatch(addPost({ id: 2, title: 'Post2', text: 'text2' }));
         dispatch(addPost({ id: 3, title: 'Post3', text: 'text3' }));
+        dispatch(addPost({ id: 4, title: 'Post3', text: 'text3' }));
+        dispatch(addPost({ id: 5, title: 'Post3', text: 'text3' }));
+        dispatch(addPost({ id: 6, title: 'Post3', text: 'text3' }));
+        dispatch(addPost({ id: 7, title: 'Post3', text: 'text3' }));
+        dispatch(addPost({ id: 8, title: 'Post3', text: 'text3' }));
     }, []);
 
 
