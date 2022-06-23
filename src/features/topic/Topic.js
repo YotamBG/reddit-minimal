@@ -18,7 +18,7 @@ export function Topic({ title }) {
 
   return (
     <div className={styles.topic}>
-      <div onClick={handleClick} >
+      <div onClick={handleClick}  data-testid={title}>
         {title}
       </div>
     </div>

@@ -14,6 +14,7 @@ export function SearchBar() {
   return (
     <div className={styles.searchBar}>
       <input
+        data-testid='searchbar'
         onChange={(e) => dispatch(setSearchTerm(e.target.value))}
       />
     </div>

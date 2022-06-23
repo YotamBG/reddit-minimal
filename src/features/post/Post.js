@@ -11,7 +11,7 @@ export function Post({title, text}) {
 //   const incrementValue = Number(incrementAmount) || 0;
 
   return (
-    <div className={styles.post}>
+    <div className={styles.post} title={title}>
         <div>
           {title}
           <br />
