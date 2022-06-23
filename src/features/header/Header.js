@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {} from './headerSlice';
 import styles from './Header.module.css';
+import { SearchBar } from '../searchBar/SearchBar';
 
 export function Header() {
 //   const count = useSelector(selectCount);
@@ -13,7 +14,8 @@ export function Header() {
   return (
     <div className={styles.header}>
         <div>
-          Header
+          Header:
+          < SearchBar />
         </div>
     </div>
   );
