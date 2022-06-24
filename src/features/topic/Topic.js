@@ -1,15 +1,10 @@
-import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React from 'react';
+import { useDispatch } from 'react-redux';
 import { setTopic } from '../posts/postsSlice';
-import { } from './topicSlice';
 import styles from './Topic.module.css';
 
 export function Topic({ title }) {
-  //   const count = useSelector(selectCount);
-    const dispatch = useDispatch();
-  //   const [incrementAmount, setIncrementAmount] = useState('2');
-
-  //   const incrementValue = Number(incrementAmount) || 0;
+  const dispatch = useDispatch();
 
   const handleClick = (e) => {
     console.log(title);
@@ -18,7 +13,7 @@ export function Topic({ title }) {
 
   return (
     <div className={styles.topic}>
-      <div onClick={handleClick}  data-testid={title}>
+      <div onClick={handleClick} data-testid={title}>
         {title}
       </div>
     </div>

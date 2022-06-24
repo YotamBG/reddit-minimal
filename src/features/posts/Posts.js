@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { addPost, setTopic, selectPosts, setSearchTerm } from './postsSlice';
+import { addPost, selectPosts } from './postsSlice';
 import styles from './Posts.module.css';
 import { Post } from '../post/Post';
 
@@ -9,8 +9,6 @@ export function Posts() {
     let topic = '';
     console.log('posts = ', posts);
     const dispatch = useDispatch();
-    //   const [incrementAmount, setIncrementAmount] = useState('2');
-    //   const incrementValue = Number(incrementAmount) || 0;
 
     useEffect(() => {
         console.log('mounted!');
@@ -22,7 +20,7 @@ export function Posts() {
         dispatch(addPost({ id: 6, title: 'Post6', text: 'text6', topic: 'dog' }));
         dispatch(addPost({ id: 7, title: 'Post7', text: 'text7', topic: 'cat' }));
         dispatch(addPost({ id: 8, title: 'Post8', text: 'text8', topic: 'dog' }));
-    }, []);
+    }, [dispatch]); //?
 
 
     topic = posts.topic;
