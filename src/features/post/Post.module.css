@@ -1,7 +1,7 @@
 .post {
     background-color: white;
-    border: 1px dashed black;
+    box-shadow: 0px 10px 15px 0px rgba(0,0,0,0.3);
     min-height: 100px;
     width: 70%;
-    margin: 10px;
+    margin: 20px;
 }

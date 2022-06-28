@@ -38,7 +38,6 @@ export function Posts() {
     return (
         <div className={styles.posts}>
             <div>
-                Posts:
                 {selectedPosts.map((post, i) => <Post title={post[1].title} media={post[1].media} mediaType={post[1].mediaType} topic={post[1].topic} key={i} />)}
             </div>
         </div>

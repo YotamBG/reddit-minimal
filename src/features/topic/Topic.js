@@ -13,7 +13,7 @@ export function Topic({ title }) { //add a loading state
   return (
     <div className={styles.topic} onClick={handleClick} data-testid={title}>
       <div>
-        {title}
+        <h3>{title}</h3>
       </div>
     </div>
   );

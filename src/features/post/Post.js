@@ -14,9 +14,9 @@ export function Post({ title, topic, media, mediaType }) {
   return (
     <div className={styles.post} title={title}>
       <div>
-        {title}
-        <br /><br />
-        {topic}
+        <br />
+        <h3>{title}</h3>
+        /r/{topic}
         <br /><br />
         {thumbnail}
       </div>

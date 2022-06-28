@@ -23,7 +23,6 @@ export function Topics() {
   return (
     <div className={styles.topics}>
       <div>
-        Topics:
         {Object.entries(topics.collection).map((topic, i) => <Topic title={topic[1].title} key={i} />)}
       </div>
     </div>
