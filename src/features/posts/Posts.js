@@ -3,16 +3,17 @@ import { useSelector, useDispatch } from 'react-redux';
 import { addPost, fetchPosts, selectPosts } from './postsSlice';
 import styles from './Posts.module.css';
 import { Post } from '../post/Post';
+import loader from './loader.gif';
 
 export function Posts() {
     const posts = useSelector(selectPosts);
     let topic = posts.topic;
     let searchTerm = posts.searchTerm;
-    
+
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(fetchPosts({topic: topic, searchTerm: searchTerm}));
+        dispatch(fetchPosts({ topic: topic, searchTerm: searchTerm }));
     }, [topic, searchTerm]);
 
     useEffect(() => {
@@ -33,6 +34,16 @@ export function Posts() {
         }
     }, [posts.status]);
 
+
+    if (posts.status === 'Loading') {
+        return (
+            <div className={styles.posts}>
+                <div>
+                    <img src={loader} alt='logo' width="100%" />
+                </div>
+            </div>
+        );
+    }
 
     let selectedPosts = Object.entries(posts.collection);
     return (
