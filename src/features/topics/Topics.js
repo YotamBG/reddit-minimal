@@ -6,12 +6,16 @@ export function Topics() {
   const topics = {
     collection: {
       1: {
-        title: 'dog',
-        posts: [1, 2, 3]
+        title: 'interestingasfuck',
       },
       2: {
-        title: 'cat',
-        posts: [3, 4, 5]
+        title: 'WhitePeopleTwitter',
+      },
+      3: {
+        title: 'TheBoys',
+      },
+      4: {
+        title: 'facepalm',
       }
     }
   };

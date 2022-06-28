@@ -1,54 +1,45 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { addPost, selectPosts } from './postsSlice';
+import { addPost, fetchPosts, selectPosts } from './postsSlice';
 import styles from './Posts.module.css';
 import { Post } from '../post/Post';
 
 export function Posts() {
     const posts = useSelector(selectPosts);
-    let topic = '';
-    console.log('posts = ', posts);
+    let topic = posts.topic;
+    let searchTerm = posts.searchTerm;
+    
     const dispatch = useDispatch();
 
     useEffect(() => {
-        console.log('mounted!');
-        dispatch(addPost({ id: 1, title: 'Post1', text: 'text1', topic: 'dog' }));
-        dispatch(addPost({ id: 2, title: 'Post2', text: 'text2', topic: 'cat' }));
-        dispatch(addPost({ id: 3, title: 'Post3', text: 'text3', topic: 'dog' }));
-        dispatch(addPost({ id: 4, title: 'Post4', text: 'text4', topic: 'cat' }));
-        dispatch(addPost({ id: 5, title: 'Post5', text: 'text5', topic: 'dog' }));
-        dispatch(addPost({ id: 6, title: 'Post6', text: 'text6', topic: 'dog' }));
-        dispatch(addPost({ id: 7, title: 'Post7', text: 'text7', topic: 'cat' }));
-        dispatch(addPost({ id: 8, title: 'Post8', text: 'text8', topic: 'dog' }));
-    }, [dispatch]); //?
+        dispatch(fetchPosts({topic: topic, searchTerm: searchTerm}));
+    }, [topic, searchTerm]);
+
+    useEffect(() => {
+        if (posts.status === 'Loaded') {
+            let loadedPosts = posts.response;
+            loadedPosts.forEach((post, i) => {
+                let media = '';
+                let mediaType = 'none';
+                if (post.media && post.media.reddit_video) {
+                    media = post.media.reddit_video.fallback_url;
+                    mediaType = 'video';
+                } else if (post.url.includes('.jpg')) {
+                    media = post.url;
+                    mediaType = 'picture';
+                }
+                dispatch(addPost({ id: i, title: post.title, media: media, mediaType: mediaType, topic: post.subreddit }));
+            });
+        }
+    }, [posts.status]);
 
 
-    topic = posts.topic;
-    console.log('topic = ', topic);
     let selectedPosts = Object.entries(posts.collection);
-    if (topic) {
-        selectedPosts = selectedPosts.filter(post => post[1].topic === topic);
-        console.log('selectedPosts = ', selectedPosts);
-    }
-    console.log('selectedPosts = ', selectedPosts);
-
-
-    let searchTerm = posts.searchTerm;
-    console.log('searchTerm = ', searchTerm);
-    if (searchTerm) {
-        selectedPosts = selectedPosts.filter(post => post[1].text.includes(searchTerm));
-        console.log('selectedPosts = ', selectedPosts);
-    }
-    console.log('selectedPosts = ', selectedPosts);
-
-
-
     return (
         <div className={styles.posts}>
             <div>
                 Posts:
-                {selectedPosts.map((post, i) => <Post title={post[1].title} text={post[1].text} key={i} />)}
-                {console.log(Object.entries(posts.collection))}
+                {selectedPosts.map((post, i) => <Post title={post[1].title} media={post[1].media} mediaType={post[1].mediaType} topic={post[1].topic} key={i} />)}
             </div>
         </div>
     );

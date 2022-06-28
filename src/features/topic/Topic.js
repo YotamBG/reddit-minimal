@@ -3,17 +3,16 @@ import { useDispatch } from 'react-redux';
 import { setTopic } from '../posts/postsSlice';
 import styles from './Topic.module.css';
 
-export function Topic({ title }) {
+export function Topic({ title }) { //add a loading state
   const dispatch = useDispatch();
 
   const handleClick = (e) => {
-    console.log(title);
     dispatch(setTopic(title));
   };
 
   return (
-    <div className={styles.topic}>
-      <div onClick={handleClick} data-testid={title}>
+    <div className={styles.topic} onClick={handleClick} data-testid={title}>
+      <div>
         {title}
       </div>
     </div>
