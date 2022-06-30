@@ -37,7 +37,7 @@ export function Posts() {
 
     if (posts.status === 'Loading') {
         return (
-            <div className={styles.posts}>
+            <div className={styles.posts} data-testid={'loading-logo'}>
                 <div>
                     <img src={loader} alt='logo' width="100%" />
                 </div>
@@ -49,7 +49,7 @@ export function Posts() {
     return (
         <div className={styles.posts}>
             <div>
-                {selectedPosts.map((post, i) => <Post title={post[1].title} media={post[1].media} mediaType={post[1].mediaType} topic={post[1].topic} key={i} />)}
+                {selectedPosts.map((post, i) => <Post title={post[1].title} media={post[1].media} mediaType={post[1].mediaType} topic={post[1].topic} id={i} key={i} />)}
             </div>
         </div>
     );

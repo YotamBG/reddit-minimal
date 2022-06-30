@@ -1,21 +1,25 @@
 import postsReducer, { addPost } from './postsSlice';
 
-describe('posts reducer', () => {
+describe('Posts reducer', () => {
   const initialState = {
     collection: {},
-    searchTerm: "",
-    topic: ""
+    topic: 'popular',
+    searchTerm: '',
+    status: '',
+    response: ''
   };
   it('should handle initial state', () => {
     expect(postsReducer(undefined, { type: 'unknown' })).toEqual({
       collection: {},
-      searchTerm: "",
-      topic: ""
+      topic: 'popular',
+      searchTerm: '',
+      status: '',
+      response: ''
     });
   });
 
   it('should handle addPost', () => {
-    const actual = postsReducer(initialState, addPost({ id: 4, title: 'wew', text: 'dsfs', topic: 'cat' }));
-    expect(actual.collection).toEqual({ '4': { title: 'wew', text: 'dsfs', topic: 'cat' } });
+    const actual = postsReducer(initialState, addPost({ id: 'id', title: 'title', media: 'media', mediaType: 'mediaType', topic: 'subreddit' }));
+    expect(actual.collection).toEqual({ 'id': { title: 'title', media: 'media', mediaType: 'mediaType', topic: 'subreddit' } });
   });
 });

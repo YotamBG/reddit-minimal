@@ -13,7 +13,7 @@ export function SearchBar() {
         data-testid='searchbar'
         onChange={(e) => setTerm(e.target.value)}
       />
-      <button type="button" onClick={() => dispatch(setSearchTerm(term))}>Search</button>
+      <button type="button" data-testid='searchbutton' onClick={() => dispatch(setSearchTerm(term))}>Search</button>
     </div>
   );
 }
