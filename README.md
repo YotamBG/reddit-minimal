@@ -5,6 +5,8 @@ This app is a minimal application of **Reddit**, only allowing users to view 25 
 This is intended to help all the die hard Reddit lovers that don't want to lose
 on their everyday **productivity** yet still want to get that minimal dose of sweet internet content.
 
+Live site is available [here](https://heroic-cheesecake-3c69c0.netlify.app/).
+
 ## Features
  - Initial view of the currently most popular posts on Reddit.
  - Subreddit menu to choose a different topic to view.
