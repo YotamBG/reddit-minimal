@@ -1,46 +1,65 @@
-# Getting Started with Create React App and Redux
+﻿
+# Reddit Minimal
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+This app is a minimal application of **Reddit**, only allowing users to view 25 posts to avoid meaningless and endless scrolling.
+This is intended to help all the die hard Reddit lovers that don't want to lose
+on their everyday **productivity** yet still want to get that minimal dose of sweet internet content.
 
-## Available Scripts
+## Features
+ - Initial view of the currently most popular posts on Reddit.
+ - Subreddit menu to choose a different topic to view.
+ - Search engine to find posts with a specific search key.
 
-In the project directory, you can run:
+## How to use
+The app is very user friendly and simplistic, the user is presented with content instantly on load, and can click the chosen topic or type a search term into the input field titled "search" and click the button!
+The data flow follows the traditional flow of the common social media app, having the user scroll down to revel more units of content.
 
-### `npm start`
+## Technologies
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+ - React
+	 - Using a modular implantation where the following tree is implemented:
+		```
+		<App>
+			<Header>
+				<SearchBar>
+			</Header>
+			<Topics>
+				<Topic/>
+				   ⋮
+			</Topics>
+			<Posts>
+				<Post/>
+				   ⋮
+			</Posts>
+		</App>
+		```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+ - Redux
+	 - Using a tree structured according to the following diagram:
+					 ![graph](https://i.imgur.com/K8AhN5P_d.webp?maxwidth=660&fidelity=grand)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+ - Jest and MSW
+	 - Used for testing both unit tests and end to end tests, with mocked API data, resulting in the following:
+	 
+		
+		>   PASS  src/features/posts/postsSlice.spec.js (5.389 s)
+		  Posts reducer
+		    √ should handle initial state (4 ms)                                                                     
+		    √ should handle addPost (6 ms)     
+		> 
+		>  PASS  src/App.test.js (12.016 s)
+		  √ Posts are filtered by topic (3365 ms)
+		  √ Posts are filtered by search (2275 ms)   
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Development process
+1. Trello board:
+![board](https://i.ibb.co/xqvN1mj/Screenshot-2022-07-01-160307.jpg)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. Wireframes:
+![wireframe](https://i.imgur.com/SzkP4w4_d.webp?maxwidth=1520&fidelity=grand)
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+3. Final result:
+![Final](https://i.ibb.co/DDPwP7S/Screenshot-2022-07-01-160447.jpg)
